@@ -12,8 +12,7 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:
-          const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Row(children: <Widget>[
         //Logo
         SvgPicture.asset(
@@ -23,8 +22,7 @@ class NavBar extends StatelessWidget {
         //Text
         Text(
           'TIKETIFY',
-          style: GoogleFonts.roboto(
-              fontSize: 20, fontWeight: FontWeight.bold),
+          style: GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         //NavItems
         Spacer(),
@@ -55,10 +53,14 @@ class NavBar extends StatelessWidget {
 class NavItem extends StatelessWidget {
   final String title;
   final GestureTapCallback onTap;
+  final double? textSize;
+  final Color? textColor;
   const NavItem({
     Key? key,
     required this.title,
     required this.onTap,
+    this.textSize = 14,
+    this.textColor = kTextColor,
   }) : super(key: key);
 
   @override
@@ -67,11 +69,12 @@ class NavItem extends StatelessWidget {
       onTap: onTap,
       hoverColor: kPrimaryColor,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Text(
           title,
-          style: const TextStyle(
-            color: kTextColor,
+          style: TextStyle(
+            color: textColor,
+            fontSize: textSize,
             fontWeight: FontWeight.w300,
           ),
         ),
