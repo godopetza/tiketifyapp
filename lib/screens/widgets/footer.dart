@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiketifyv1/responsive.dart';
 
 import '../../constants.dart';
 import 'widgets.dart';
@@ -10,17 +11,29 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return (!isMobile(context)) ? DesktopFooter() : MobileFooter();
+  }
+}
+
+class DesktopFooter extends StatelessWidget {
+  const DesktopFooter({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
-      margin:
-          const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Row(
         children: <Widget>[
           Expanded(
             flex: 1,
             child: Text(
-              'All Rights Reserved',
-              style: TextStyle(fontSize: 10),
-            ),
+              'All Right Reserved',
+              style: TextStyle(
+                fontSize: 10
+              ),
+            )
           ),
           Expanded(
             flex: 2,
@@ -44,6 +57,49 @@ class Footer extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MobileFooter extends StatelessWidget {
+  const MobileFooter({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+      child: Column(
+        children: <Widget>[
+          const Text(
+            'All Rights Reserved',
+            style: TextStyle(fontSize: 10),
+          ),
+          Wrap(
+            alignment: WrapAlignment.center,
+            children: <Widget>[
+              FooterItem(
+                title: 'Twitter',
+                onTap: () {},
+              ),
+              FooterItem(
+                title: 'Facebook',
+                onTap: () {},
+              ),
+              FooterItem(
+                title: 'Instagram',
+                onTap: () {},
+              ),
+              FooterItem(
+                title: 'WhatsApp',
+                onTap: () {},
+              ),
+            ],
           ),
         ],
       ),

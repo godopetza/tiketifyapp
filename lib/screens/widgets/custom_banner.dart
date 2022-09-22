@@ -2,59 +2,69 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants.dart';
+import '../../responsive.dart';
 import 'widgets.dart';
 
 class CustomBanner extends StatelessWidget {
   const CustomBanner({
     Key? key,
-    required this.size,
   }) : super(key: key);
-
-  final Size size;
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Row(
         children: <Widget>[
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(right: 40),
+              padding: EdgeInsets.only(right: !isMobile(context) ? 40 : 0),
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: !isMobile(context)
+                      ? MainAxisAlignment.start
+                      : MainAxisAlignment.center,
+                  crossAxisAlignment: !isMobile(context)
+                      ? CrossAxisAlignment.start
+                      : CrossAxisAlignment.center,
                   children: <Widget>[
+                    if (isMobile(context))
+                      SvgPicture.asset(
+                        '/images/living.svg',
+                        height: size.height * 0.3,
+                      ),
                     RichText(
-                      text: const TextSpan(
+                      text: TextSpan(
                         children: [
                           TextSpan(
                             text: 'Buy ',
                             style: TextStyle(
-                              fontSize: 36,
+                              fontSize: isDesktop(context) ? 64 : 36,
                               fontWeight: FontWeight.w800,
+                              color: kTextColor,
                             ),
                           ),
                           TextSpan(
                             text: 'Event Tickets',
                             style: TextStyle(
-                                fontSize: 36,
+                                fontSize: isDesktop(context) ? 64 : 36,
                                 fontWeight: FontWeight.w800,
                                 color: kPrimaryColor),
                           ),
                         ],
                       ),
                     ),
-                    const Text(
+                     Text(
                       'With Us Today!',
-                      style: TextStyle(
-                          fontSize: 32, fontWeight: FontWeight.w800),
+                      style:
+                          TextStyle(fontSize: isDesktop(context) ? 64 :32, fontWeight: FontWeight.w800),
                     ),
                     const SizedBox(height: 5),
-                    const Text(
+                     Text(
                       'Kenya, Uganda, Tanzania.',
-                      style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.w300),
+                      style:
+                          TextStyle(fontSize: isDesktop(context) ? 36 :18, fontWeight: FontWeight.w300),
                     ),
                     const SizedBox(height: 10),
                     Wrap(
@@ -78,14 +88,15 @@ class CustomBanner extends StatelessWidget {
                   ]),
             ),
           ),
-          Expanded(
-            child: SvgPicture.asset(
-              '/images/living.svg',
-              height: size.height * 0.7,
-            ),
-          ),
+          if (isDesktop(context) || isTab(context))
+            Expanded(
+              child: SvgPicture.asset(
+                '/images/living.svg',
+                height: size.height * 0.7,
+              ),
+            )
         ],
-      ),
+      )
     );
   }
 }

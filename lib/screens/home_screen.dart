@@ -9,19 +9,30 @@ class HomeScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Container(
-        width: size.width,
-        height: size.height,
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              const NavBar(),
-              CustomBanner(size: size),
-              const Footer(),
-            ]),
+      endDrawer: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: 300
+        ),
+        child: SideMenu()
+      ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            width: size.width,
+            constraints: BoxConstraints(
+              minHeight: size.height
+            ),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const <Widget>[
+                  NavBar(),
+                  CustomBanner(),
+                  Footer(),
+                ]),
+          ),
+        ),
       ),
     );
   }
 }
-
