@@ -17,10 +17,9 @@ class MyApp extends StatelessWidget {
       title: 'Tiketify',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: kPrimaryColor,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-      ),
-      home: HomeScreen(),
+          primaryColor: kPrimaryColor,
+          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)),
+      home: EventPage(),
     );
   }
 }

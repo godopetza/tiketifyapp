@@ -4,3 +4,4 @@ export 'custom_banner.dart';
 export 'footer.dart';
 export 'menu_item.dart';
 export 'side_menu.dart';
+export 'custom_text_field.dart';
