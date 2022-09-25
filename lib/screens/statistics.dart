@@ -80,31 +80,39 @@ class StatsScreenBody extends StatelessWidget {
                         ),
                       if (!isMobile(context))
                         Row(
-                          children: const [
+                          children: [
                             CustomCard(
                               cardcolor: Color(0xFF01DA08),
                               maintext: 'REVENUE',
                               subtext: '\$25,000',
+                              height: size.height * 0.15,
+                              width: size.width * 0.15,
                             ),
                             CustomCard(
                               cardcolor: Color(0xFF3C76F3),
                               maintext: 'TICKETS SOLD',
                               subtext: '28,611',
+                              height: size.height * 0.15,
+                              width: size.width * 0.15,
                             ),
                           ],
                         ),
                       if (isMobile(context))
                         Column(
-                          children: const [
+                          children: [
                             CustomCard(
                               cardcolor: Color(0xFF01DA08),
                               maintext: 'REVENUE',
                               subtext: '\$25,000',
+                              height: size.height * 0.1,
+                              width: size.width * 0.5,
                             ),
                             CustomCard(
                               cardcolor: Color(0xFF3C76F3),
                               maintext: 'TICKETS SOLD',
                               subtext: '28,611',
+                              height: size.height * 0.1,
+                              width: size.width * 0.5,
                             ),
                           ],
                         ),
@@ -161,34 +169,41 @@ class CustomCard extends StatelessWidget {
   final Color cardcolor;
   final String maintext;
   final String subtext;
+  final double height;
+  final double width;
 
   const CustomCard({
     Key? key,
     required this.cardcolor,
     required this.maintext,
     required this.subtext,
+    required this.height,
+    required this.width,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 20,
-      color: cardcolor,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(children: [
-          Text(
-            maintext,
-            style: TextStyle(fontSize: isDesktop(context) ? 64 : 25),
-          ),
-          Text(
-            subtext,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: isDesktop(context) ? 36 : 18,
+    return Container(
+      height: height,
+      width: width,
+      child: Card(
+        elevation: 20,
+        color: cardcolor,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(children: [
+            Text(
+              maintext,
+              // style: TextStyle(fontSize: isDesktop(context) ? 40 : 25),
             ),
-          ),
-        ]),
+            Text(
+              subtext,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ]),
+        ),
       ),
     );
   }
