@@ -3,3 +3,4 @@ export 'login.dart';
 export 'admin_dashboard.dart';
 export 'add_event.dart';
 export 'statistics.dart';
+export 'customer_data.dart';
