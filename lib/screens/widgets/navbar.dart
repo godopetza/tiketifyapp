@@ -27,7 +27,7 @@ class NavBar extends StatelessWidget {
           style: GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         //NavItems
-        Spacer(),
+        const Spacer(),
         if (!isMobile(context))
           Row(
             children: [

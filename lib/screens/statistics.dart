@@ -14,7 +14,7 @@ class StatsScreen extends StatelessWidget {
 
     return Scaffold(
       endDrawer: ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 300), child: SideMenu()),
+          constraints: const BoxConstraints(maxWidth: 300), child: const SideMenu()),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -50,7 +50,7 @@ class StatsScreenBody extends StatelessWidget {
     ];
 
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
         child: Row(
           children: <Widget>[
             Expanded(
@@ -82,14 +82,14 @@ class StatsScreenBody extends StatelessWidget {
                         Row(
                           children: [
                             CustomCard(
-                              cardcolor: Color(0xFF01DA08),
+                              cardcolor: const Color(0xFF01DA08),
                               maintext: 'REVENUE',
                               subtext: '\$25,000',
                               height: size.height * 0.15,
                               width: size.width * 0.15,
                             ),
                             CustomCard(
-                              cardcolor: Color(0xFF3C76F3),
+                              cardcolor: const Color(0xFF3C76F3),
                               maintext: 'TICKETS SOLD',
                               subtext: '28,611',
                               height: size.height * 0.15,
@@ -101,14 +101,14 @@ class StatsScreenBody extends StatelessWidget {
                         Column(
                           children: [
                             CustomCard(
-                              cardcolor: Color(0xFF01DA08),
+                              cardcolor: const Color(0xFF01DA08),
                               maintext: 'REVENUE',
                               subtext: '\$25,000',
                               height: size.height * 0.1,
                               width: size.width * 0.5,
                             ),
                             CustomCard(
-                              cardcolor: Color(0xFF3C76F3),
+                              cardcolor: const Color(0xFF3C76F3),
                               maintext: 'TICKETS SOLD',
                               subtext: '28,611',
                               height: size.height * 0.1,
@@ -156,7 +156,7 @@ class StatsScreenBody extends StatelessWidget {
   }
 
   Widget buildImage(String eventImage, int index) => Container(
-        margin: EdgeInsets.symmetric(horizontal: 12),
+        margin: const EdgeInsets.symmetric(horizontal: 12),
         color: Colors.grey,
         child: Image.network(
           eventImage,
@@ -183,7 +183,7 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: height,
       width: width,
       child: Card(
@@ -198,7 +198,7 @@ class CustomCard extends StatelessWidget {
             ),
             Text(
               subtext,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),

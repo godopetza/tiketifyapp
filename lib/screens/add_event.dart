@@ -13,7 +13,7 @@ class EventPage extends StatelessWidget {
 
     return Scaffold(
       endDrawer: ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 300), child: SideMenu()),
+          constraints: const BoxConstraints(maxWidth: 300), child: const SideMenu()),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -39,10 +39,9 @@ class AddEventBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
 
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
         child: Row(
           children: <Widget>[
             Expanded(
@@ -56,23 +55,23 @@ class AddEventBody extends StatelessWidget {
                         ? CrossAxisAlignment.start
                         : CrossAxisAlignment.center,
                     children: <Widget>[
-                      if (isMobile(context)) CustomImageContainer(),
-                      CustomTextField(
+                      if (isMobile(context)) const CustomImageContainer(),
+                      const CustomTextField(
                         hint: 'ENTER EVENT NAME',
                       ),
                       const SizedBox(height: 5),
-                      CustomTextField(
+                      const CustomTextField(
                         hint: 'ENTER EVENT DESCRIPTION',
                       ),
                       const SizedBox(height: 5),
-                      CustomTextField(
+                      const CustomTextField(
                         hint: 'ENTER EVENT PRICE',
                       ),
                       const SizedBox(height: 5),
-                      CustomTextField(
+                      const CustomTextField(
                         hint: 'ENTER AVAILABLE TICKETS',
                       ),
-                      CustomTextField(
+                      const CustomTextField(
                         hint: 'ENTER EVENT DATE',
                       ),
                       const SizedBox(height: 10),
@@ -90,7 +89,7 @@ class AddEventBody extends StatelessWidget {
               ),
             ),
             if (isDesktop(context) || isTab(context))
-              Expanded(child: CustomImageContainer())
+              const Expanded(child: CustomImageContainer())
           ],
         ));
   }

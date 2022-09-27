@@ -13,7 +13,7 @@ class AdminScreen extends StatelessWidget {
 
     return Scaffold(
       endDrawer: ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 300), child: SideMenu()),
+          constraints: const BoxConstraints(maxWidth: 300), child: const SideMenu()),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -44,7 +44,7 @@ class AdminBody extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
         child: Row(
           children: <Widget>[
             Expanded(

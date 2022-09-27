@@ -11,7 +11,7 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (!isMobile(context)) ? DesktopFooter() : MobileFooter();
+    return (!isMobile(context)) ? const DesktopFooter() : const MobileFooter();
   }
 }
 
@@ -26,15 +26,12 @@ class DesktopFooter extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Row(
         children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Text(
-              'All Right Reserved',
-              style: TextStyle(
-                fontSize: 10
-              ),
-            )
-          ),
+          const Expanded(
+              flex: 1,
+              child: Text(
+                'All Right Reserved',
+                style: TextStyle(fontSize: 10),
+              )),
           Expanded(
             flex: 2,
             child: Row(

@@ -8,7 +8,7 @@ class CustomTextField extends StatelessWidget {
   final EdgeInsets padding;
   final bool passwordtext;
 
-  CustomTextField({
+  const CustomTextField({
     Key? key,
     this.hint = '',
     this.initialValue = '',
@@ -23,24 +23,24 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: padding,
       child: Focus(
+        onFocusChange: onFocusChanged ?? (hasFocus) {},
         child: TextFormField(
           initialValue: initialValue,
           decoration: InputDecoration(
             filled: true,
             fillColor: Colors.white,
             hintText: hint,
-            contentPadding: EdgeInsets.only(bottom: 5.0, top: 12.5),
-            focusedBorder: OutlineInputBorder(
+            contentPadding:const EdgeInsets.only(bottom: 5.0, top: 12.5),
+            focusedBorder:const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder:const UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
           ),
           onChanged: onChanged,
           obscureText: passwordtext,
         ),
-        onFocusChange: onFocusChanged ?? (hasFocus) {},
       ),
     );
   }

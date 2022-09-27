@@ -12,7 +12,7 @@ class CustomerDataScreen extends StatelessWidget {
 
     return Scaffold(
       endDrawer: ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 300), child: SideMenu()),
+          constraints: const BoxConstraints(maxWidth: 300), child: const SideMenu()),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -40,11 +40,10 @@ class DataBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     final customers = Customer.customers.toList();
 
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
         child: Expanded(
           child: Padding(
             padding: EdgeInsets.only(right: !isMobile(context) ? 40 : 0),

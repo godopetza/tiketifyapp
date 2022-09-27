@@ -10,10 +10,10 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       endDrawer: ConstrainedBox(
-        constraints: BoxConstraints(
+        constraints: const BoxConstraints(
           maxWidth: 300
         ),
-        child: SideMenu()
+        child: const SideMenu()
       ),
       body: SingleChildScrollView(
         child: SafeArea(

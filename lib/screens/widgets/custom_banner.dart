@@ -15,7 +15,7 @@ class CustomBanner extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Row(
         children: <Widget>[
           Expanded(

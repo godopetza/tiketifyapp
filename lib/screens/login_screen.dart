@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../constants.dart';
-import '../models/models.dart';
 import '../responsive.dart';
 import 'widgets/widgets.dart';
 
@@ -14,7 +13,7 @@ class LoginScreen extends StatelessWidget {
 
     return Scaffold(
       endDrawer: ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 300), child: SideMenu()),
+          constraints: const BoxConstraints(maxWidth: 300), child: const SideMenu()),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -45,7 +44,7 @@ class LoginBody extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
         child: Row(
           children: <Widget>[
             Expanded(
@@ -60,9 +59,9 @@ class LoginBody extends StatelessWidget {
                           '/images/loginscreen.svg',
                           height: size.height * 0.3,
                         ),
-                      CustomTextField(hint: 'ENTER EMAIL HERE'),
+                      const CustomTextField(hint: 'ENTER EMAIL HERE'),
                       const SizedBox(height: 10),
-                      CustomTextField(
+                      const CustomTextField(
                           hint: 'ENTER PASSWORD HERE', passwordtext: true),
                       const SizedBox(height: 20),
                       Wrap(

@@ -15,7 +15,7 @@ class SideMenu extends StatelessWidget {
       color: Colors.white,
       child: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
               NavItem(

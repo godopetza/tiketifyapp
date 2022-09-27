@@ -5,7 +5,7 @@ import 'package:tiketifyv1/constants.dart';
 import 'screens/screens.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primaryColor: kPrimaryColor,
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)),
-      home: BrowseEventsScreen(),
+      home: const HomeScreen()
     );
   }
 }
