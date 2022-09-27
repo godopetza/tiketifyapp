@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tiketifyv1/responsive.dart';
+import 'package:tiketifyv1/screens/screens.dart';
 
 import '../../constants.dart';
 import 'widgets.dart';
@@ -17,15 +18,27 @@ class NavBar extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Row(children: <Widget>[
         //Logo
-        SvgPicture.asset(
-          '/images/logo.svg',
-          width: 50,
+        InkWell(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()));
+          },
+          child: Row(
+            children: [
+              SvgPicture.asset(
+                '/images/logo.svg',
+                width: 50,
+              ),
+              //Text
+              Text(
+                'TIKETIFY',
+                style: GoogleFonts.roboto(
+                    fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
-        //Text
-        Text(
-          'TIKETIFY',
-          style: GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
+
         //NavItems
         const Spacer(),
         if (!isMobile(context))
@@ -33,11 +46,21 @@ class NavBar extends StatelessWidget {
             children: [
               NavItem(
                 title: 'HOME',
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                },
               ),
               NavItem(
                 title: 'TIKETI',
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BrowseEventsScreen()));
+                },
               ),
               NavItem(
                 title: 'CONTACT US',
@@ -47,7 +70,12 @@ class NavBar extends StatelessWidget {
                 style: TextButton.styleFrom(
                   primary: kPrimaryColor,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
+                },
                 child: const Text('LOGIN'),
               ),
             ],
@@ -63,5 +91,3 @@ class NavBar extends StatelessWidget {
     );
   }
 }
-
-

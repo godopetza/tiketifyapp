@@ -14,7 +14,8 @@ class BookEventScreen extends StatelessWidget {
 
     return Scaffold(
       endDrawer: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 300), child: const SideMenu()),
+          constraints: const BoxConstraints(maxWidth: 300),
+          child: const SideMenu()),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -69,8 +70,7 @@ class BookEventBody extends StatelessWidget {
                         ),
                       const CustomTextField(hint: 'ENTER EMAIL HERE'),
                       const SizedBox(height: 10),
-                      const CustomTextField(
-                          hint: 'ENTER NAME HERE', passwordtext: true),
+                      const CustomTextField(hint: 'ENTER NAME HERE'),
                       const SizedBox(height: 20),
                       Wrap(
                         runSpacing: 10,
@@ -82,7 +82,8 @@ class BookEventBody extends StatelessWidget {
                                   context: context,
                                   builder: (context) => AlertDialog(
                                         title: const Text('ALERT'),
-                                        content: const Text('Redirect to payment'),
+                                        content:
+                                            const Text('Redirect to payment'),
                                         actions: [
                                           TextButton(
                                               onPressed: () {
