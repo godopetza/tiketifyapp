@@ -6,6 +6,7 @@ class CustomTextField extends StatelessWidget {
   final Function(String)? onChanged;
   final Function(bool)? onFocusChanged;
   final EdgeInsets padding;
+  final bool passwordtext;
 
   CustomTextField({
     Key? key,
@@ -13,6 +14,7 @@ class CustomTextField extends StatelessWidget {
     this.initialValue = '',
     this.onChanged,
     this.onFocusChanged,
+    this.passwordtext = false,
     this.padding = const EdgeInsets.symmetric(horizontal: 20.0),
   }) : super(key: key);
 
@@ -27,7 +29,7 @@ class CustomTextField extends StatelessWidget {
             filled: true,
             fillColor: Colors.white,
             hintText: hint,
-            contentPadding:  EdgeInsets.only(bottom: 5.0, top: 12.5),
+            contentPadding: EdgeInsets.only(bottom: 5.0, top: 12.5),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
@@ -36,6 +38,7 @@ class CustomTextField extends StatelessWidget {
             ),
           ),
           onChanged: onChanged,
+          obscureText: passwordtext,
         ),
         onFocusChange: onFocusChanged ?? (hasFocus) {},
       ),
