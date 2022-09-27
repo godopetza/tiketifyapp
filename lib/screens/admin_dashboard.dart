@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tiketifyv1/screens/screens.dart';
 import '../constants.dart';
 import '../responsive.dart';
 import 'widgets/widgets.dart';
@@ -13,7 +14,8 @@ class AdminScreen extends StatelessWidget {
 
     return Scaffold(
       endDrawer: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 300), child: const SideMenu()),
+          constraints: const BoxConstraints(maxWidth: 300),
+          child: const SideMenu()),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -62,12 +64,16 @@ class AdminBody extends StatelessWidget {
                         Column(
                           children: [
                             const Text('You\'re on mobile view!'),
-                            const SizedBox(height: 20,),
+                            const SizedBox(
+                              height: 20,
+                            ),
                             SvgPicture.asset(
                               '/images/admin.svg',
                               height: size.height * 0.2,
                             ),
-                            const SizedBox(height: 5,),
+                            const SizedBox(
+                              height: 5,
+                            ),
                           ],
                         ),
                       RichText(
@@ -97,7 +103,13 @@ class AdminBody extends StatelessWidget {
                         children: <Widget>[
                           CustomButton(
                             color: kPrimaryColor,
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const CustomerDataScreen()));
+                            },
                             title: 'STATISTICS',
                           ),
                           const SizedBox(
@@ -105,7 +117,12 @@ class AdminBody extends StatelessWidget {
                           ),
                           CustomButton(
                             color: kSecondaryColor,
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EventPage()));
+                            },
                             title: 'ADD EVENT',
                           )
                         ],

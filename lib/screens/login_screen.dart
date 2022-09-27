@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tiketifyv1/screens/admin_dashboard.dart';
 import '../constants.dart';
 import '../responsive.dart';
 import 'widgets/widgets.dart';
@@ -13,7 +14,8 @@ class LoginScreen extends StatelessWidget {
 
     return Scaffold(
       endDrawer: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 300), child: const SideMenu()),
+          constraints: const BoxConstraints(maxWidth: 300),
+          child: const SideMenu()),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -69,7 +71,13 @@ class LoginBody extends StatelessWidget {
                         children: <Widget>[
                           CustomButton(
                             color: kPrimaryColor,
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const AdminScreen()));
+                            },
                             title: 'LOGIN',
                           )
                         ],

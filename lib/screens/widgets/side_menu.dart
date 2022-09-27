@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
+import '../screens.dart';
 import 'widgets.dart';
-
-
 
 class SideMenu extends StatelessWidget {
   const SideMenu({Key? key}) : super(key: key);
@@ -20,11 +19,21 @@ class SideMenu extends StatelessWidget {
             children: [
               NavItem(
                 title: 'HOME',
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                },
               ),
               NavItem(
                 title: 'TIKETI',
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BrowseEventsScreen()));
+                },
               ),
               NavItem(
                 title: 'CONTACT US',
@@ -34,7 +43,12 @@ class SideMenu extends StatelessWidget {
                 style: TextButton.styleFrom(
                   primary: kPrimaryColor,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
+                },
                 child: const Text('LOGIN'),
               ),
             ],
